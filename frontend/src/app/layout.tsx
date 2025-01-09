@@ -1,5 +1,6 @@
 import Footer from '@/components/widgets/footer/Footer'
 import Header from '@/components/widgets/header/Header'
+import Providers from '@/providers/Providers'
 import type { Metadata } from 'next'
 import { Libre_Franklin } from 'next/font/google'
 import './globals.css'
@@ -19,9 +20,11 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body className={libre.className}>
-				<Header />
-				{children}
-				<Footer />
+				<Providers>
+					<Header />
+					{children}
+					<Footer />
+				</Providers>
 			</body>
 		</html>
 	)
