@@ -18,7 +18,7 @@ const PosterCard = ({
 		<Link
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
-			href={`/catalog/${poster._id}`}
+			href={`/catalog/${poster.slug}`}
 			className={`group/product flex flex-col h-fit hover:scale-105 active:opacity-60 transition-all duration-300 relative ${className} `}
 		>
 			<img
@@ -28,13 +28,10 @@ const PosterCard = ({
 				alt={poster.name}
 			/>
 			<div
-				className='text-main flex gap-10 py-3 relative z-10 transition-all duration-300 group-hover/product:p-3 group-hover/product:gap-4'
+				className='text-main gap-10 py-3 relative z-10 transition-all duration-300 group-hover/product:p-3 group-hover/product:gap-4'
 				style={{ marginTop: height }}
 			>
-				<span className='grow text-base leading-auto'>{poster.name}</span>
-				{/* <span className='text-xl leading-auto shrink-0'>
-					{poster.price} byn
-				</span> */}
+				<p className='text-body text-right'>{poster.name}</p>
 			</div>
 		</Link>
 	)
