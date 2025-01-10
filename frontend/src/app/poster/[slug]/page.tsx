@@ -1,3 +1,5 @@
+import PosterPage from '@/components/pages/poster/PosterPage'
+
 export default function page() {
-	return <div>poster</div>
+	return <PosterPage />
 }

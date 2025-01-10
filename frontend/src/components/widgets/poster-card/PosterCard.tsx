@@ -1,5 +1,5 @@
 'use client'
-import IPosterShort from '@/types/poster.types'
+import { IPosterShort } from '@/types/poster.types'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -18,7 +18,7 @@ const PosterCard = ({
 		<Link
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
-			href={`/catalog/${poster.slug}`}
+			href={`/poster/${poster.slug}`}
 			className={`group/product flex flex-col h-fit hover:scale-105 active:opacity-60 transition-all duration-300 relative ${className} `}
 		>
 			<img

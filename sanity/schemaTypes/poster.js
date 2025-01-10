@@ -16,7 +16,7 @@ export default {
     {
       name: 'description',
       title: 'Описание',
-      type: 'string',
+      type: 'text',
     },
     {
       name: 'categories',

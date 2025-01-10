@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import PosterCard from '@/components/widgets/poster-card/PosterCard'
-import usePostersByCategory from '@/hooks/usePosters'
+import usePostersByCategory from '@/hooks/usePostersByCategory'
 import { LoaderCircle } from 'lucide-react'
 
 const PosterGrid = ({ category }: { category: string }) => {
@@ -12,7 +12,7 @@ const PosterGrid = ({ category }: { category: string }) => {
 		return (
 			<section className='py-[250px]'>
 				<div className='container flex justify-center'>
-					<LoaderCircle className='animate-spin' size={64} />
+					<LoaderCircle className='animate-spin' size={60} />
 				</div>
 			</section>
 		)
