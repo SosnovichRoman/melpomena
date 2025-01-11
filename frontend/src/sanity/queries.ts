@@ -4,6 +4,16 @@ export const PostersByCategoryQuery = (category: string) => {
 }`
 }
 
+export const PostersByIdsQuery = (ids: string[]) => {
+	return `*[_type == 'poster' && _id in ${JSON.stringify(ids)}]{
+  _id, name, slug, description,
+  "images": images[].asset->url,
+  "categories": categories[]->{_id, name},
+  "dimensions": dimensions[]->{_id, name, price},
+  "frames": frames[]->{_id, name, price}
+}`
+}
+
 export const PosterBySlug = (slug: string) => {
 	return `*[_type == 'poster' && slug == '${slug}'][0]{
   _id, name, slug, description,

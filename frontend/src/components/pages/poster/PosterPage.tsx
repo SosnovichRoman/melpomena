@@ -1,6 +1,8 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import usePosterBySlug from '@/hooks/usePosterBySlug'
+import cartService from '@/services/cart.service'
+import { useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -13,6 +15,13 @@ const PosterPage = () => {
 	const [selectedDimention, setSelectedDimension] = useState(0)
 	const [selectedFrame, setSelectedFrame] = useState(0)
 	console.log(poster)
+	const isInCart = cartService.isInCart(poster?._id || '')
+	const client = useQueryClient()
+
+	const addPosterToCart = (_id: string) => {
+		cartService.add(_id)
+		client.invalidateQueries({ queryKey: 'cart-list' })
+	}
 
 	// const [loading, setLoading] = useState(true)
 	// const [error, setError] = useState(false)
@@ -97,18 +106,19 @@ const PosterPage = () => {
 								</span>
 							</div> */}
 
-							{/* {inCart ? (
-									<button disabled className='mt-10 button-main'>
-										В корзине
-									</button>
-								) : (
-									<button
-										className='mt-10 button-main-filled'
-										onClick={addToCart}
-									>
-										В корзину
-									</button>
-								)} */}
+							{isInCart ? (
+								<Button asChild>
+									<a href='/cart'>Перейти в корзину</a>
+								</Button>
+							) : (
+								<Button
+									onClick={() => {
+										if (poster?._id) addPosterToCart(poster?._id)
+									}}
+								>
+									Добавить в корзину
+								</Button>
+							)}
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,9 @@
 import { client } from '@/sanity/client'
-import { PosterBySlug, PostersByCategoryQuery } from '@/sanity/queries'
+import {
+	PosterBySlug,
+	PostersByCategoryQuery,
+	PostersByIdsQuery,
+} from '@/sanity/queries'
 import { IPosterFull, IPosterShort } from '@/types/poster.types'
 
 class PosterService {
@@ -7,6 +11,10 @@ class PosterService {
 		const response = await client.fetch<IPosterShort[]>(
 			PostersByCategoryQuery(category)
 		)
+		return response
+	}
+	async getAllByIds(ids: string[]) {
+		const response = await client.fetch<IPosterFull[]>(PostersByIdsQuery(ids))
 		return response
 	}
 	async getBySlug(slug: string) {
