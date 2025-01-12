@@ -1,14 +1,14 @@
-import cartService from '@/services/cart.service'
 import posterService from '@/services/poster.service'
+import useCartStore from '@/stores/cart.store'
 import { ICartPoster } from '@/types/poster.types'
 import { useQuery } from '@tanstack/react-query'
 
 export default function useCartPosters() {
+	const { cartList } = useCartStore()
 	const { data, isLoading, isError, error } = useQuery({
-		queryKey: ['cart-list'],
+		queryKey: ['cart-list', cartList], // TODO: могут быть проблемы с производительностью (постоянные запросы при изменении колва КАЖДОГО товара)
 		queryFn: async () => {
 			// Загружаю все постеры по id в корзине
-			const cartList = cartService.getAll()
 			const response = await posterService.getAllByIds(
 				cartList.map((item) => item._id)
 			)
@@ -16,7 +16,6 @@ export default function useCartPosters() {
 		},
 		select: (data) => {
 			// Совмещаю загруженные постеры с их количеством
-			const cartList = cartService.getAll()
 			const cartPosters = data.map<ICartPoster>((dataItem) => ({
 				...dataItem,
 				quantity:

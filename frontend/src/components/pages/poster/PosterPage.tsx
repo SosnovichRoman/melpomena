@@ -1,8 +1,8 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import useAddCartItem from '@/hooks/useAddCartItem'
-import useCartList from '@/hooks/useCartList'
+
 import usePosterBySlug from '@/hooks/usePosterBySlug'
+import useCartStore from '@/stores/cart.store'
 import cartUtils from '@/utils/cart.utils'
 import { useState } from 'react'
 import 'swiper/css'
@@ -16,9 +16,8 @@ const PosterPage = () => {
 	const [selectedDimention, setSelectedDimension] = useState(0)
 	const [selectedFrame, setSelectedFrame] = useState(0)
 
-	const { cartList } = useCartList()
+	const { cartList, add: addToStore } = useCartStore()
 	const isInCart = cartUtils.isInCart(poster?._id || '', cartList)
-	const { addCartItem } = useAddCartItem()
 
 	// if (error)
 	// 	return (
@@ -90,7 +89,7 @@ const PosterPage = () => {
 							) : (
 								<Button
 									onClick={() => {
-										if (poster?._id) addCartItem(poster?._id)
+										if (poster?._id) addToStore(poster?._id)
 									}}
 								>
 									Добавить в корзину

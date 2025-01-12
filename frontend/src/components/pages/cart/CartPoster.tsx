@@ -1,10 +1,10 @@
-import useDeleteCartItem from '@/hooks/useDeleteCartItem'
+import useCartStore from '@/stores/cart.store'
 import { ICartPoster } from '@/types/poster.types'
 import posterUtils from '@/utils/poster.utils'
 import { X } from 'lucide-react'
 
 const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
-	const { deleteCartItem } = useDeleteCartItem()
+	const { delete: deleteFromStore } = useCartStore()
 
 	return (
 		<div className='grid grid-cols-7 gap-[30px] pb-5 border-b-2 border-solid border-main-3'>
@@ -26,7 +26,7 @@ const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
 					</div> */}
 				</div>
 				<div className='h-full flex flex-col justify-between items-end gap-5'>
-					<button onClick={() => deleteCartItem(cartPoster._id)}>
+					<button onClick={() => deleteFromStore(cartPoster._id)}>
 						<X />
 					</button>
 					{/* <Icon
