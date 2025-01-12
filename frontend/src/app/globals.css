@@ -79,10 +79,35 @@ body {
 
 @layer components {
 	.container {
-		@apply max-w-[1460px] px-5 mx-auto;
+		@apply max-w-[1420px] px-5 mx-auto;
 	}
 	.link {
 		@apply hover:underline;
+	}
+
+	.heading-1 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	.heading-2 {
+		font-size: 2.5rem;
+		font-weight: 500;
+		line-height: 1.25;
+	}
+
+	.heading-3 {
+		font-size: 1.75rem;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	.heading-4 {
+		font-size: 1.5rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 1.5;
 	}
 	.text-body {
 		font-size: 1rem;
@@ -214,49 +239,6 @@ body {
 	&:disabled{
 			@apply opacity-50
 	}
-} */
-
-.heading-1 {
-	font-size: 3rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 1.25;
-}
-
-.heading-2 {
-	font-size: 3rem;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.25;
-}
-
-.heading-3 {
-	font-size: 1.75rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.5;
-}
-
-.heading-4 {
-	font-size: 1.5rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.5;
-}
-
-/* .text-body {
-	font-size: 1.125rem;
-	line-height: 1.4;
-}
-
-.text-body-lg {
-	font-size: 1.25rem;
-	line-height: 1.4;
-}
-
-.text-body-sm {
-	font-size: 1rem;
-	line-height: 1.4;
 } */
 
 /* .input-lg {

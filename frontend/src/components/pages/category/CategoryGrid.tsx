@@ -1,37 +1,18 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
+import NotFound from '@/components/widgets/not-found/NotFound'
+import PageLoading from '@/components/widgets/page-loading/PageLoading'
 import PosterCard from '@/components/widgets/poster-card/PosterCard'
 import usePostersByCategory from '@/hooks/usePostersByCategory'
-import { LoaderCircle } from 'lucide-react'
 
 const PosterGrid = ({ category }: { category: string }) => {
 	const { posters, isLoading, isError } = usePostersByCategory(category)
 
-	if (isLoading)
-		return (
-			<section className='py-[250px]'>
-				<div className='container flex justify-center'>
-					<LoaderCircle className='animate-spin' size={60} />
-				</div>
-			</section>
-		)
-	if (isError) return <div className=''>loading...</div>
+	if (isLoading) return <PageLoading />
+	if (isError) return <NotFound />
 
 	if (posters?.length == 0 || (posters == undefined && !isLoading))
-		return (
-			<section className='py-[250px]'>
-				<div className='conteiner flex items-center justify-center flex-col'>
-					<p className='heading-3'>Упс! Товаров не найдено</p>
-					<Button asChild className='mt-5' size={'lg'}>
-						<a href='/' className='text-body-sm font-normal'>
-							Вернуться на главную
-						</a>
-					</Button>
-					{/* <p className='text-body mt-4'>Попробуйте изменить параметры поиска</p> */}
-				</div>
-			</section>
-		)
+		return <NotFound title='Товаров не найдено' />
 
 	return (
 		<section className='py-[30px]'>
