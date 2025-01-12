@@ -32,11 +32,11 @@ const Header = () => {
 	// }, []);
 
 	return (
-		<header className='border-b-[1px] border-black'>
+		<header className='bg-light-bg'>
 			<div className='container h-20 flex justify-between'>
 				<nav className='flex items-center gap-20'>
 					<a href='/'>
-						<img className='h-20' src='/img/logo.png' alt='logo' />
+						<img className='h-12' src='/img/logo.svg' alt='logo' />
 					</a>
 					<ul className='flex items-center gap-12 text-lg'>
 						{categoryLinks.map((category) => (
