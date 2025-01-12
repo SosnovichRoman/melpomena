@@ -1,7 +1,11 @@
+import useDeleteCartItem from '@/hooks/useDeleteCartItem'
 import { ICartPoster } from '@/types/poster.types'
 import posterUtils from '@/utils/poster.utils'
+import { X } from 'lucide-react'
 
 const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
+	const { deleteCartItem } = useDeleteCartItem()
+
 	return (
 		<div className='grid grid-cols-7 gap-[30px] pb-5 border-b-2 border-solid border-main-3'>
 			<img
@@ -22,6 +26,9 @@ const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
 					</div> */}
 				</div>
 				<div className='h-full flex flex-col justify-between items-end gap-5'>
+					<button onClick={() => deleteCartItem(cartPoster._id)}>
+						<X />
+					</button>
 					{/* <Icon
 						icon='prime:times'
 						className='cursor-pointer text-[1.5rem]'

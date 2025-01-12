@@ -1,8 +1,9 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import useAddCartItem from '@/hooks/useAddCartItem'
+import useCartList from '@/hooks/useCartList'
 import usePosterBySlug from '@/hooks/usePosterBySlug'
-import cartService from '@/services/cart.service'
-import { useQueryClient } from '@tanstack/react-query'
+import cartUtils from '@/utils/cart.utils'
 import { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/free-mode'
@@ -14,34 +15,10 @@ const PosterPage = () => {
 	const { poster, isLoading, isError } = usePosterBySlug('alaindelon')
 	const [selectedDimention, setSelectedDimension] = useState(0)
 	const [selectedFrame, setSelectedFrame] = useState(0)
-	console.log(poster)
-	const isInCart = cartService.isInCart(poster?._id || '')
-	const client = useQueryClient()
 
-	const addPosterToCart = (_id: string) => {
-		cartService.add(_id)
-		client.invalidateQueries({ queryKey: 'cart-list' })
-	}
-
-	// const [loading, setLoading] = useState(true)
-	// const [error, setError] = useState(false)
-	// const [inCart, setInCart] = useState(false)
-	// const id = useParams().id
-
-	// const addToCart = () => {
-	// 	const cartList = JSON.parse(localStorage.getItem('cartList')) || []
-
-	// 	if (!cartList.find((item) => item?.product?._id == id)) {
-	// 		cartList.push({ product, count: 1 })
-	// 		localStorage.setItem('cartList', JSON.stringify(cartList))
-	// 		setInCart(true)
-	// 	}
-	// }
-
-	// useEffect(() => {
-	// 	const cartList = JSON.parse(localStorage.getItem('cartList')) || []
-	// 	if (cartList.find((item) => item?.product?._id == id)) setInCart(true)
-	// }, [])
+	const { cartList } = useCartList()
+	const isInCart = cartUtils.isInCart(poster?._id || '', cartList)
+	const { addCartItem } = useAddCartItem()
 
 	// if (error)
 	// 	return (
@@ -113,7 +90,7 @@ const PosterPage = () => {
 							) : (
 								<Button
 									onClick={() => {
-										if (poster?._id) addPosterToCart(poster?._id)
+										if (poster?._id) addCartItem(poster?._id)
 									}}
 								>
 									Добавить в корзину

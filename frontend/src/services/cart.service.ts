@@ -1,4 +1,5 @@
 import { ICartItem } from '@/types/cart.types'
+import cartUtils from '@/utils/cart.utils'
 
 class CartService {
 	private CART_LIST_KEY = 'cart-list'
@@ -8,13 +9,9 @@ class CartService {
 		)
 		return cartList
 	}
-	isInCart(_id: string) {
-		const cartList = this.getAll()
-		return cartList.find((item) => item._id == _id) ? true : false
-	}
 	add(_id: string) {
-		if (!this.isInCart(_id)) {
-			const cartList = this.getAll()
+		const cartList = this.getAll()
+		if (!cartUtils.isInCart(_id, cartList)) {
 			cartList.push({ _id, quantity: 1 })
 			localStorage.setItem(this.CART_LIST_KEY, JSON.stringify(cartList))
 		}
