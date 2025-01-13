@@ -14,6 +14,14 @@ export const PostersByIdsQuery = (ids: string[]) => {
 }`
 }
 
+export const PopularPostersQuery = () => {
+	return `*[_type == 'popularPoster']{
+  ...reference->{
+  _id, name, slug, "images": images[].asset->url
+  }
+}`
+}
+
 export const PosterBySlug = (slug: string) => {
 	return `*[_type == 'poster' && slug == '${slug}'][0]{
   _id, name, slug, description,

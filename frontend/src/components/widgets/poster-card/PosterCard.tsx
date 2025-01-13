@@ -9,7 +9,7 @@ const PosterCard = ({
 	height = 400,
 }: {
 	poster: IPosterShort
-	className: string
+	className?: string
 	height?: number
 }) => {
 	const [hovered, setHovered] = useState(false)

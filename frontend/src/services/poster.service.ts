@@ -1,5 +1,6 @@
 import { client } from '@/sanity/client'
 import {
+	PopularPostersQuery,
 	PosterBySlug,
 	PostersByCategoryQuery,
 	PostersByIdsQuery,
@@ -11,6 +12,10 @@ class PosterService {
 		const response = await client.fetch<IPosterShort[]>(
 			PostersByCategoryQuery(category)
 		)
+		return response
+	}
+	async getPopularPosters() {
+		const response = await client.fetch<IPosterShort[]>(PopularPostersQuery())
 		return response
 	}
 	async getAllByIds(ids: string[]) {
