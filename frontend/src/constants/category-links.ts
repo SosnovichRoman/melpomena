@@ -1,5 +1,9 @@
 const categoryLinks = [
 	{
+		name: 'Все постеры',
+		slug: 'all-posters',
+	},
+	{
 		name: 'Личности',
 		slug: 'personalities',
 	},
@@ -8,16 +12,8 @@ const categoryLinks = [
 		slug: 'movies',
 	},
 	{
-		name: 'Музыка',
-		slug: 'music',
-	},
-	{
-		name: 'Авто',
-		slug: 'auto',
-	},
-	{
-		name: 'Кумиры',
-		slug: 'kumirs',
+		name: 'Спорт',
+		slug: 'sport',
 	},
 ]
 
