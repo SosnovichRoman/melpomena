@@ -1,6 +1,5 @@
 import useCartStore from '@/stores/cart.store'
 import { ICartPoster } from '@/types/poster.types'
-import posterUtils from '@/utils/poster.utils'
 import { X } from 'lucide-react'
 
 const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
@@ -36,7 +35,7 @@ const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
 					/> */}
 					{/* <CountPicker onChange={updateCount} value={item?.count} /> */}
 					<p className='heading-4 text-main'>
-						{posterUtils.calculatePosterPrice(cartPoster)} BYN
+						{/* {posterUtils.calculatePosterPrice(cartPoster)} */}0 BYN
 					</p>
 				</div>
 			</div>

@@ -5,7 +5,7 @@ import CartPoster from './CartPoster'
 import CartSummary from './CartSummary'
 
 const CartPage = () => {
-	const { cartPosters, isLoading, isError } = useCartPosters()
+	const { cartPosters } = useCartPosters()
 
 	return (
 		<main>

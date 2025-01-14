@@ -1,15 +1,19 @@
+'use client'
 import { ICartItem } from '@/types/cart.types'
 
 class CartService {
 	private CART_LIST_KEY = 'cart-list'
 	getAll() {
-		const cartList: ICartItem[] = JSON.parse(
-			localStorage.getItem(this.CART_LIST_KEY) || '[]'
-		)
+		let cartList: ICartItem[] = []
+		if (typeof window !== 'undefined')
+			cartList = JSON.parse(
+				window?.localStorage.getItem(this.CART_LIST_KEY) || '[]'
+			)
 		return cartList
 	}
 	save(cartList: ICartItem[]) {
-		localStorage.setItem(this.CART_LIST_KEY, JSON.stringify(cartList))
+		if (typeof window !== 'undefined')
+			window?.localStorage.setItem(this.CART_LIST_KEY, JSON.stringify(cartList))
 	}
 }
 

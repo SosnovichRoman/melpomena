@@ -8,16 +8,15 @@ import {
 } from '@/components/ui/sheet'
 import categoryLinks from '@/constants/category-links'
 import { Menu } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import CartIcon from './CartIcon'
 
 const Header = () => {
-	const [toggle, setToggle] = useState(false)
-	useEffect(() => {
-		toggle
-			? document.documentElement.classList.add('lock')
-			: document.documentElement.classList.remove('lock')
-	})
+	// const [toggle, setToggle] = useState(false)
+	// useEffect(() => {
+	// 	toggle
+	// 		? document.documentElement.classList.add('lock')
+	// 		: document.documentElement.classList.remove('lock')
+	// })
 
 	return (
 		<header className='bg-light-bg'>
