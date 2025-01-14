@@ -2,14 +2,14 @@ import { Button } from '@/components/ui/button'
 
 export default function Hero() {
 	return (
-		<section className='relative h-[720px]'>
+		<section className='relative md:h-[720px]'>
 			<img
-				className='absolute inset-0 w-full h-full object-cover'
+				className='md:absolute inset-0 w-full h-full object-cover'
 				src='/img/home/hero-bg.png'
 				alt='hero'
 			/>
 			<div className='container relative z-10 h-full flex items-center'>
-				<div className='p-10 rounded-xl max-w-[600px] space-y-10 flex flex-col items-start bg-light-bg'>
+				<div className='md:p-10 p-5 md:max-w-[600px] max-md:mt-5 rounded-xl space-y-10 flex flex-col items-start bg-light-bg'>
 					<h1 className='heading-2 text-main'>
 						Сделайте свой интерьер уникальным
 					</h1>
@@ -18,7 +18,7 @@ export default function Hero() {
 						которые будут вдохновлять вас каждый день и создавать настроение.
 					</p>
 					<Button asChild className='text-lg' size={'xl'}>
-						<a href='/catalog'>Перейти в каталог</a>
+						<a href='/category/all-posters'>Перейти в каталог</a>
 					</Button>
 				</div>
 			</div>

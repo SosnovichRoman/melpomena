@@ -7,9 +7,9 @@ const Footer = () => {
 	return (
 		<section className='bg-light-bg'>
 			<div className='container'>
-				<div className='pt-[90px] pb-[50px] grid grid-cols-4 gap-7'>
-					<div className='pr-10'>
-						<a href='/'>
+				<div className='md:pt-20 pt-10 pb-10 grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-7 max-md:text-center'>
+					<div>
+						<a href='/' className='max-md:flex max-md:justify-center'>
 							<img className='h-12' src='/img/logo.svg' alt='logo' />
 						</a>
 						{/* <p className='text-body mt-6'>
@@ -20,7 +20,7 @@ const Footer = () => {
 						<h4 className='heading-4 mt-6'>Подпишитесь на наш инстаграм</h4>
 						<a
 							href='https://www.instagram.com/melpomena.by/'
-							className='mt-3 flex items-center gap-4 link'
+							className='mt-3 flex items-center gap-4 link max-md:justify-center'
 						>
 							<Instagram />
 							<span className='text-body font-medium'>@melpomena.by</span>
@@ -60,14 +60,14 @@ const Footer = () => {
 					<div className=''>
 						<h3 className='heading-3'>Контакты</h3>
 						<ul className='mt-6 space-y-4 text-body'>
-							<li className='flex gap-4 items-center'>
+							<li className='flex gap-4 items-center max-md:justify-center'>
 								<MapPin />
 								<span>г. Минск, ул. П. Бровки, дом 52а, офис 36</span>
 							</li>
 							<li>
 								<a
 									href='tel:+375 (44) 573-89-29'
-									className='hover:underline flex gap-4 items-center'
+									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
 									<Phone />
 									<span>+375 (44) 573-89-29</span>
@@ -76,13 +76,13 @@ const Footer = () => {
 							<li>
 								<a
 									href='mailto:sosnovichroman@gmail.com'
-									className='hover:underline flex gap-4 items-center'
+									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
 									<Mail />
 									<span>sosnovichroman@gmail.com</span>
 								</a>
 							</li>
-							<li className='flex gap-4 items-center'>
+							<li className='flex gap-4 items-center max-md:justify-center'>
 								<Clock />
 								<span>Пн-пт 10:00 - 18:00</span>
 							</li>

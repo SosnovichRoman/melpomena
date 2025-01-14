@@ -24,10 +24,10 @@ const comments = [
 export default function Testimonials() {
 	return (
 		<section className=''>
-			<div className='container py-[90px]'>
+			<div className='container md:pt-20 pt-5 pb-20'>
 				<h2 className='heading-2 border-b-2'>Отзывы покупателей</h2>
 
-				<div className='mt-[50px] grid grid-cols-3 gap-8'>
+				<div className='mt-[50px] grid lg:grid-cols-3 md:grid-cols-2 gap-8'>
 					{comments.map((comment) => (
 						<div
 							key={comment.name}

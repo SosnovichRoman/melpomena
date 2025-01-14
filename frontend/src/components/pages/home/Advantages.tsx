@@ -2,12 +2,12 @@ import { Scroll, ShieldCheck, Truck } from 'lucide-react'
 
 export default function Advantages() {
 	return (
-		<section className='pt-10 pb-20'>
+		<section className='pt-10 md:pb-20 pb-10'>
 			<div className='container'>
 				<h2 className='heading-2 text-center'>
 					Почему выбитают постеры Melpomena?
 				</h2>
-				<div className='grid grid-cols-3 gap-8 mt-16'>
+				<div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-8 gap-6 md:mt-16 mt-10'>
 					<div className='space-y-5 flex flex-col items-center'>
 						<Scroll strokeWidth={1} className='h-16 w-16' />
 						<h3 className='heading-4 text-main text-center'>
