@@ -15,7 +15,7 @@ export default function About() {
 					</p>
 					<p>Вы найдете в нашем каталоге постеры на любой вкус и цвет!</p>
 					<Button className='text-lg' size={'xl'} asChild>
-						<a href='/category/all-posters'>Перейти в каталог</a>
+						<a href='/category'>Перейти в каталог</a>
 					</Button>
 				</div>
 				<div className='relative'>

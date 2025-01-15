@@ -1,5 +1,5 @@
 export const PostersByCategoryQuery = (category: string) => {
-	if (category == 'all-posters')
+	if (category == '')
 		return `*[_type == 'poster']{
     _id, name, slug, "images": images[].asset->url
   }`
@@ -34,4 +34,10 @@ export const PosterBySlug = (slug: string) => {
   "dimensions": dimensions[]->{_id, name, price},
   "frames": frames[]->{_id, name, price}
 }`
+}
+
+export const CategoryBySlug = (slug: string) => {
+	return `*[_type == 'category' && slug == '${slug}'][0]{
+    name, slug,
+  }`
 }

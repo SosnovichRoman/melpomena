@@ -18,7 +18,7 @@ export default function Hero() {
 						которые будут вдохновлять вас каждый день и создавать настроение.
 					</p>
 					<Button asChild className='text-lg' size={'xl'}>
-						<a href='/category/all-posters'>Перейти в каталог</a>
+						<a href='/category'>Перейти в каталог</a>
 					</Button>
 				</div>
 			</div>

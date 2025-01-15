@@ -10,7 +10,7 @@ export default function PopularPosters() {
 	return (
 		<section className=''>
 			<div className='container pt-20 md:pb-20 pb-5'>
-				<h2 className='heading-2 grow border-b-2 border-solid'>
+				<h2 className='heading-2 border-b-2 border-solid'>
 					Популярные постеры
 				</h2>
 				{isLoading ? (

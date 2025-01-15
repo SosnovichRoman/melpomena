@@ -1,7 +1,7 @@
 const categoryLinks = [
 	{
 		name: 'Все постеры',
-		slug: 'all-posters',
+		slug: '',
 	},
 	{
 		name: 'Личности',

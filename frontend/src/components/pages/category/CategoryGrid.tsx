@@ -16,7 +16,9 @@ const CategoryGrid = ({ category }: { category: string }) => {
 
 	return (
 		<section className='py-[30px]'>
-			<PosterGrid className=' mt-[30px]' posters={posters} />
+			<div className='container'>
+				<PosterGrid className='' posters={posters} />
+			</div>
 		</section>
 	)
 }
