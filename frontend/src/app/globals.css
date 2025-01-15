@@ -90,7 +90,7 @@ body {
 	}
 
 	.heading-2 {
-		@apply text-[2.5rem] max-lg:text-[2.25rem] max-md:text-[1.75rem] font-medium leading-tight;
+		@apply text-[2.5rem] max-lg:text-[2.25rem] max-md:text-[1.75rem] font-semibold leading-tight;
 	}
 
 	.heading-3 {

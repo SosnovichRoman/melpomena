@@ -11,7 +11,7 @@ export interface IPosterFull {
 	slug: string
 	description: string
 	images: [string]
-	categories: [{ _id: string; name: string }]
+	categories: [{ _id: string; name: string; slug: string }]
 	frames: [{ _id: string; name: string; price: string }]
 	dimensions: [{ _id: string; name: string; price: string }]
 }

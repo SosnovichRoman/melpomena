@@ -27,14 +27,14 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 
 	return (
 		<section className=''>
-			<div className='container py-[90px]'>
+			<div className='container pb-20'>
 				<div className='grid grid-cols-2 gap-20'>
 					<PosterImages poster={poster} />
 					<div className=''>
 						<h1 className='heading-2 text-main'>{poster?.name}</h1>
-						<div className='mt-5 heading-3'>{price} руб.</div>
+						<div className='mt-5 heading-3 font-normal'>{price} руб.</div>
 						<div className='mt-5'>
-							<p className='text-body-lg font-medium'>Размеры:</p>
+							<p className='heading-4'>Размеры:</p>
 							<div className='mt-2 flex gap-5'>
 								{poster?.dimensions?.map((dimension, index) => (
 									<Button
@@ -49,7 +49,7 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 							</div>
 						</div>
 						<div className='mt-5'>
-							<p className='text-body-lg font-medium'>Рамки:</p>
+							<p className='heading-4'>Рамки:</p>
 							<div className='mt-2 flex gap-5'>
 								{poster?.frames?.map((frame, index) => (
 									<Button
@@ -64,7 +64,9 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 							</div>
 						</div>
 
-						<pre className='mt-10 text-body-lg'>{poster?.description}</pre>
+						<p className='mt-10 text-body-lg whitespace-pre-wrap'>
+							{poster?.description}
+						</p>
 
 						{isInCart ? (
 							<Button className='mt-5 w-full' size={'xl'} asChild>
