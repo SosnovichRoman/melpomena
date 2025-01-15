@@ -1,30 +1,23 @@
 import CategoryPage from '@/components/pages/category/CategoryPage'
 import categoryService from '@/services/category.service'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 
 type Props = {
 	params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata(
-	{ params }: Props,
-	parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const slug = (await params).slug
-	let categoryName = ''
-	if (slug == 'all-posters') categoryName = 'Все постеры'
-	else categoryName = (await categoryService.getBySlug(slug)).name
+	const category = await categoryService.getBySlug(slug)
 
 	return {
-		title: categoryName || '',
+		title: category.name || '',
 		description: 'Постеры Melpomena',
 	} satisfies Metadata
 }
 
 export default async function page({ params }: { params: { slug: string } }) {
 	const slug = (await params).slug
-	let category = { name: '', slug }
-	if (slug == 'all-posters') category.name = 'Все постеры'
-	else category = await categoryService.getBySlug(slug)
+	const category = await categoryService.getBySlug(slug)
 	return <CategoryPage category={category} />
 }
