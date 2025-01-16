@@ -6,11 +6,7 @@ import { X } from 'lucide-react'
 
 const CartPoster = ({ cartRecord }: { cartRecord: ICartRecord }) => {
 	const { cartPoster, quantity } = cartRecord
-	const {
-		delete: deleteFromStore,
-		cartList,
-		update: updateStore,
-	} = useCartStore()
+	const { delete: deleteFromStore, update: updateStore } = useCartStore()
 	const cartPosterSave = {
 		_id: cartPoster._id,
 		dimensionId: cartPoster.dimension._id,

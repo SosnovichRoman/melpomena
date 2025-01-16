@@ -1,15 +1,11 @@
 'use client'
 
 import useCartPosters from '@/hooks/useCartPosters'
-import useCartStore from '@/stores/cart.store'
 import CartPoster from './CartPoster'
 import CartSummary from './CartSummary'
 
 const CartPage = () => {
 	const { cartRecords } = useCartPosters()
-	const { cartList } = useCartStore()
-	console.log('cr:', cartRecords)
-	console.log('cl:', cartList)
 
 	return (
 		<main>
@@ -31,7 +27,7 @@ const CartPage = () => {
 								/>
 							))}
 						</div>
-						<CartSummary />
+						<CartSummary className='col-span-5' />
 					</div>
 				</div>
 			</section>
