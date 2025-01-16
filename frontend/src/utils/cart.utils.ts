@@ -11,6 +11,18 @@ class CartUtils {
 			? true
 			: false
 	}
+
+	getQuantity(cartPoster: ICartPoster, cartList: ICartRecord[]) {
+		return (
+			cartList.find(
+				(cartRecord) =>
+					cartRecord.cartPoster._id == cartPoster._id &&
+					cartRecord.cartPoster.dimensionId == cartPoster.dimensionId &&
+					cartRecord.cartPoster.frameId == cartPoster.frameId
+			)?.quantity || 0
+		)
+	}
+
 	getTotalQuantity(cartList: ICartRecord[]) {
 		return cartList
 			.map((cartRecord) => cartRecord.quantity)

@@ -40,7 +40,11 @@ const useCartStore = create<Store>()(
 				set((state) => {
 					const newState = {
 						cartList: state.cartList.map((record) => {
-							if (record.cartPoster._id == cartPoster._id)
+							if (
+								record.cartPoster._id == cartPoster._id &&
+								record.cartPoster.dimensionId == cartPoster.dimensionId &&
+								record.cartPoster.frameId == cartPoster.frameId
+							)
 								return { cartPoster, quantity }
 							return record
 						}),
@@ -49,8 +53,8 @@ const useCartStore = create<Store>()(
 				}),
 		}),
 		{
-			name: 'cart-storage', // name of the item in the storage (must be unique)
-			storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+			name: 'cart-storage',
+			storage: createJSONStorage(() => localStorage),
 		}
 	)
 )

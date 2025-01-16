@@ -23,7 +23,7 @@ const CartPage = () => {
 										cartPoster.dimension._id +
 										cartPoster.frame._id
 									}
-									cartPoster={cartPoster}
+									cartPosterFull={cartPoster}
 								/>
 							))}
 						</div>
