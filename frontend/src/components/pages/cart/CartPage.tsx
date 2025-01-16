@@ -17,7 +17,14 @@ const CartPage = () => {
 					<div className='grid grid-cols-12 gap-[30px] mt-[50px]'>
 						<div className='col-span-7 space-y-10'>
 							{cartPosters?.map((cartPoster) => (
-								<CartPoster key={cartPoster._id} cartPoster={cartPoster} />
+								<CartPoster
+									key={
+										cartPoster._id +
+										cartPoster.dimension._id +
+										cartPoster.frame._id
+									}
+									cartPoster={cartPoster}
+								/>
 							))}
 						</div>
 						<CartSummary />

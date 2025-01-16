@@ -16,6 +16,13 @@ export interface IPosterFull {
 	dimensions: [{ _id: string; name: string; price: string }]
 }
 
-export interface ICartPoster extends IPosterFull {
-	quantity: number
+export interface ICartPosterFull {
+	_id: string
+	name: string
+	slug: string
+	description: string
+	images: [string]
+	categories: [{ _id: string; name: string; slug: string }]
+	frame: { _id: string; name: string; price: string }
+	dimension: { _id: string; name: string; price: string }
 }

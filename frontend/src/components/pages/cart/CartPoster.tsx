@@ -1,8 +1,8 @@
 import useCartStore from '@/stores/cart.store'
-import { ICartPoster } from '@/types/poster.types'
+import { ICartPosterFull } from '@/types/poster.types'
 import { X } from 'lucide-react'
 
-const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
+const CartPoster = ({ cartPoster }: { cartPoster: ICartPosterFull }) => {
 	const { delete: deleteFromStore } = useCartStore()
 
 	return (
@@ -17,6 +17,9 @@ const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
 					<div className='grow'>
 						<h4 className='heading-4 text-main'>{cartPoster?.name}</h4>
 					</div>
+					<p>{cartPoster.dimension.name}</p>
+					<p>{cartPoster.frame.name}</p>
+
 					{/* <div className='mt-10 flex items-baseline gap-[10px]'>
 						<span className='text-body-sm text-main-3'>Размер:</span>
 						<span className='text-body-lg font-semibold'>
@@ -25,7 +28,15 @@ const CartPoster = ({ cartPoster }: { cartPoster: ICartPoster }) => {
 					</div> */}
 				</div>
 				<div className='h-full flex flex-col justify-between items-end gap-5'>
-					<button onClick={() => deleteFromStore(cartPoster._id)}>
+					<button
+						onClick={() =>
+							deleteFromStore({
+								_id: cartPoster._id,
+								dimensionId: cartPoster.dimension._id,
+								frameId: cartPoster.frame._id,
+							})
+						}
+					>
 						<X />
 					</button>
 					{/* <Icon

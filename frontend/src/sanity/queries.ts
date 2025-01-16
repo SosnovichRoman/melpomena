@@ -1,3 +1,5 @@
+import { ICartPoster } from '@/types/cart.types'
+
 export const PostersByCategoryQuery = (category: string) => {
 	if (category == '')
 		return `*[_type == 'poster']{
@@ -8,13 +10,15 @@ export const PostersByCategoryQuery = (category: string) => {
 }`
 }
 
-export const PostersByIdsQuery = (ids: string[]) => {
-	return `*[_type == 'poster' && _id in ${JSON.stringify(ids)}]{
+export const PosterByCartQuery = (cartPoster: ICartPoster) => {
+	return `*[_type == 'poster' && _id == '${cartPoster._id}'
+   && count(dimensions[_ref == '${cartPoster.dimensionId}']) > 0
+   && count(frames[_ref == '${cartPoster.frameId}']) > 0][0]{
   _id, name, slug, description,
   "images": images[].asset->url,
   "categories": categories[]->{_id, name, slug},
-  "dimensions": dimensions[]->{_id, name, price},
-  "frames": frames[]->{_id, name, price}
+  "dimension": dimensions[_ref == '${cartPoster.dimensionId}'][0]->{_id, name, price},
+  "frame": frames[_ref == '${cartPoster.frameId}'][0]->{_id, name, price}
 }`
 }
 

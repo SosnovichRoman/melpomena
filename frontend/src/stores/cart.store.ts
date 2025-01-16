@@ -1,40 +1,48 @@
-import { ICartItem } from '@/types/cart.types'
+import { ICartPoster, ICartRecord } from '@/types/cart.types'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 
 type Store = {
-	cartList: ICartItem[]
-	add: (_id: string) => void
-	delete: (_id: string) => void
-	update: (_id: string, quantity: number) => void
+	cartList: ICartRecord[]
+	add: (cartPoster: ICartPoster) => void
+	delete: (cartPoster: ICartPoster) => void
+	update: (cartPoster: ICartPoster, quantity: number) => void
 }
 
 const useCartStore = create<Store>()(
 	persist(
 		(set) => ({
 			cartList: [],
-			add: (_id: string) =>
+			add: (cartPoster: ICartPoster) =>
 				set((state) => {
 					const newState = {
-						cartList: [...state.cartList, { _id, quantity: 1 }],
+						cartList: [...state.cartList, { cartPoster, quantity: 1 }],
 					}
 					return newState
 				}),
 
-			delete: (_id: string) =>
+			delete: (cartPoster: ICartPoster) =>
 				set((state) => {
 					const newState = {
-						cartList: state.cartList.filter((item) => item._id != _id),
+						cartList: state.cartList.filter(
+							(record) =>
+								!(
+									record.cartPoster._id == cartPoster._id &&
+									record.cartPoster.dimensionId == cartPoster.dimensionId &&
+									record.cartPoster.frameId == cartPoster.frameId
+								)
+						),
 					}
 					return newState
 				}),
 
-			update: (_id: string, quantity: number) =>
+			update: (cartPoster: ICartPoster, quantity: number) =>
 				set((state) => {
 					const newState = {
-						cartList: state.cartList.map((item) => {
-							if (item._id == _id) return { _id, quantity }
-							return item
+						cartList: state.cartList.map((record) => {
+							if (record.cartPoster._id == cartPoster._id)
+								return { cartPoster, quantity }
+							return record
 						}),
 					}
 					return newState

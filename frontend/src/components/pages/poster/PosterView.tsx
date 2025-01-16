@@ -18,7 +18,14 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 	const [selectedDimention, setSelectedDimension] = useState(0)
 	const [selectedFrame, setSelectedFrame] = useState(0)
 
-	const isInCart = cartUtils.isInCart(poster?._id || '', cartList)
+	const isInCart = cartUtils.isInCart(
+		{
+			_id: poster._id,
+			dimensionId: poster.dimensions[selectedDimention]._id,
+			frameId: poster.frames[selectedFrame]._id,
+		},
+		cartList
+	)
 	const price = posterUtils.calculatePosterPrice(
 		poster!,
 		selectedDimention,
@@ -77,7 +84,12 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 								className='mt-5 w-full'
 								size={'xl'}
 								onClick={() => {
-									if (poster?._id) addToStore(poster?._id)
+									if (poster?._id)
+										addToStore({
+											_id: poster._id,
+											dimensionId: poster.dimensions[selectedDimention]._id,
+											frameId: poster.frames[selectedFrame]._id,
+										})
 								}}
 							>
 								Добавить в корзину
