@@ -6,10 +6,6 @@ import { IPosterFull } from '@/types/poster.types'
 import cartUtils from '@/utils/cart.utils'
 import posterUtils from '@/utils/poster.utils'
 import { useState } from 'react'
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
 import PosterImages from './PosterImages'
 
 export default function PosterView({ poster }: { poster: IPosterFull }) {
@@ -35,14 +31,14 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 	return (
 		<section className=''>
 			<div className='container pb-20'>
-				<div className='grid grid-cols-2 gap-20'>
+				<div className='grid lg:grid-cols-2 lg:gap-20 gap-10'>
 					<PosterImages poster={poster} />
 					<div className=''>
-						<h1 className='heading-2 text-main'>{poster?.name}</h1>
+						<h1 className='heading-2 text-main'>Постер {poster?.name}</h1>
 						<div className='mt-5 heading-3 font-normal'>{price} руб.</div>
 						<div className='mt-5'>
 							<p className='heading-4'>Размеры:</p>
-							<div className='mt-2 flex gap-5'>
+							<div className='mt-2 flex gap-3 flex-wrap'>
 								{poster?.dimensions?.map((dimension, index) => (
 									<Button
 										className='text-base'
@@ -57,7 +53,7 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 						</div>
 						<div className='mt-5'>
 							<p className='heading-4'>Рамки:</p>
-							<div className='mt-2 flex gap-5'>
+							<div className='mt-2 flex gap-3 flex-wrap'>
 								{poster?.frames?.map((frame, index) => (
 									<Button
 										className='text-base'

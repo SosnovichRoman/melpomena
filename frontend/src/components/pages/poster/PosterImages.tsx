@@ -9,11 +9,12 @@ const PosterImages = ({ poster }: { poster: IPosterFull | undefined }) => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0)
 	return (
 		<>
-			<div className='md:hidden'>
+			<div className='md:hidden min-w-0'>
 				<Swiper
 					scrollbar={{
 						hide: true,
 					}}
+					slidesPerView={1}
 					spaceBetween={10}
 					modules={[Scrollbar]}
 				>
@@ -34,7 +35,7 @@ const PosterImages = ({ poster }: { poster: IPosterFull | undefined }) => {
 					src={poster?.images?.[currentImageIndex]}
 					alt={poster?.name}
 				/>
-				<div className='grid xl:grid-cols-5 lg:grid-cols-4 grid-cols-3 gap-5 mt-10'>
+				<div className='grid grid-cols-5 gap-5 mt-10'>
 					{poster?.images?.map((image, index) => (
 						<img
 							src={image}
