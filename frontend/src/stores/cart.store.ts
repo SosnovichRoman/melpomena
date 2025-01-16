@@ -1,19 +1,19 @@
-import { ICartPoster, ICartRecord } from '@/types/cart.types'
+import { ICartPosterSave, ICartRecordSave } from '@/types/cart.types'
 import { create } from 'zustand'
 import { createJSONStorage, persist } from 'zustand/middleware'
 
 type Store = {
-	cartList: ICartRecord[]
-	add: (cartPoster: ICartPoster) => void
-	delete: (cartPoster: ICartPoster) => void
-	update: (cartPoster: ICartPoster, quantity: number) => void
+	cartList: ICartRecordSave[]
+	add: (cartPoster: ICartPosterSave) => void
+	delete: (cartPoster: ICartPosterSave) => void
+	update: (cartPoster: ICartPosterSave, quantity: number) => void
 }
 
 const useCartStore = create<Store>()(
 	persist(
 		(set) => ({
 			cartList: [],
-			add: (cartPoster: ICartPoster) =>
+			add: (cartPoster: ICartPosterSave) =>
 				set((state) => {
 					const newState = {
 						cartList: [...state.cartList, { cartPoster, quantity: 1 }],
@@ -21,7 +21,7 @@ const useCartStore = create<Store>()(
 					return newState
 				}),
 
-			delete: (cartPoster: ICartPoster) =>
+			delete: (cartPoster: ICartPosterSave) =>
 				set((state) => {
 					const newState = {
 						cartList: state.cartList.filter(
@@ -36,7 +36,7 @@ const useCartStore = create<Store>()(
 					return newState
 				}),
 
-			update: (cartPoster: ICartPoster, quantity: number) =>
+			update: (cartPoster: ICartPosterSave, quantity: number) =>
 				set((state) => {
 					const newState = {
 						cartList: state.cartList.map((record) => {

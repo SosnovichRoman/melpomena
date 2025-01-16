@@ -6,12 +6,8 @@ import {
 	PostersByCategoriesQuery,
 	PostersByCategoryQuery,
 } from '@/sanity/queries'
-import { ICartRecord } from '@/types/cart.types'
-import {
-	ICartPosterFull,
-	IPosterFull,
-	IPosterShort,
-} from '@/types/poster.types'
+import { ICartRecordSave } from '@/types/cart.types'
+import { ICartPoster, IPosterFull, IPosterShort } from '@/types/poster.types'
 
 class PosterService {
 	async getAllByCategory(category: string) {
@@ -30,10 +26,10 @@ class PosterService {
 		)
 		return response
 	}
-	async getAllByCart(cartList: ICartRecord[]) {
+	async getAllByCart(cartList: ICartRecordSave[]) {
 		const response = await Promise.all(
 			cartList.map((cartRecord) =>
-				client.fetch<ICartPosterFull>(PosterByCartQuery(cartRecord.cartPoster))
+				client.fetch<ICartPoster>(PosterByCartQuery(cartRecord.cartPoster))
 			)
 		)
 		return response

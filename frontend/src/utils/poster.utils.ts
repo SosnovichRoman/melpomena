@@ -1,4 +1,4 @@
-import { ICartPosterFull, IPosterFull } from '@/types/poster.types'
+import { ICartPoster, IPosterFull } from '@/types/poster.types'
 
 class PosterUtils {
 	calculatePosterPrice(
@@ -11,9 +11,9 @@ class PosterUtils {
 		const price = dimensionPrice + framePrice
 		return price
 	}
-	calculateCartPosterPrice(cartPosterFull: ICartPosterFull, quantity: number) {
-		const dimensionPrice = cartPosterFull.dimension.price
-		const framePrice = cartPosterFull.frame.price
+	calculateCartPosterPrice(cartPoster: ICartPoster, quantity: number) {
+		const dimensionPrice = cartPoster.dimension.price
+		const framePrice = cartPoster.frame.price
 		const posterPrice = dimensionPrice + framePrice
 		const fullPrice = posterPrice * quantity
 		return fullPrice
