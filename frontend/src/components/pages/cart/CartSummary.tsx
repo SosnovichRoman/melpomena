@@ -1,11 +1,22 @@
+import { Button } from '@/components/ui/button'
 import useCartPosters from '@/hooks/useCartPosters'
 import useCartStore from '@/stores/cart.store'
+import useOrderStore from '@/stores/order.store'
 import cartUtils from '@/utils/cart.utils'
 import posterUtils from '@/utils/poster.utils'
 
-const CartSummary = ({ className }: { className?: string }) => {
+const CartSummary = ({
+	className,
+	isCartPage = true,
+}: // handleSubmit,
+{
+	className?: string
+	isCartPage?: boolean
+	// handleSubmit?: Function
+}) => {
 	const { cartRecords } = useCartPosters()
 	const { cartList } = useCartStore()
+	const { deliveryType } = useOrderStore()
 	const totalQuantity = cartUtils.getTotalQuantity(cartList)
 	const totalPrice =
 		cartRecords
@@ -16,7 +27,7 @@ const CartSummary = ({ className }: { className?: string }) => {
 				)
 			)
 			.reduce((acc, quantity) => acc + quantity, 0) || 0
-	const orderPrice = totalPrice + 50
+	const orderPrice = totalPrice + deliveryType.price
 
 	return (
 		<div
@@ -34,29 +45,22 @@ const CartSummary = ({ className }: { className?: string }) => {
 			<div className='flex justify-between gap-5 items-baseline'>
 				<span className='text-body-sm'>Стоимость доставки:</span>
 				<span className='text-body-lg font-semibold'>
-					Бесплатно
-					{/* {orderInfo.deliveryType == 'Самовывоз'
-						? 'Бесплатно'
-						: `${DELIVERY_COST} BYN`} */}
+					{deliveryType.price == 0 ? 'Бесплатно' : `${deliveryType.price} руб`}
 				</span>
 			</div>
-			{/* <div className='flex text-body-sm gap-5'>
-							<input className='input-lg grow' />
-							<button className='button-main-sm'>Применить</button>
-					</div> */}
 			<div className='flex justify-between gap-5 heading-3'>
 				<span>Итого:</span>
 				<span>{orderPrice} BYN</span>
 			</div>
-			{/* {page == 'cart' ? (
-				<button className='button-main-filled' onClick={() => setPage('order')}>
-					Перейти к оформлению
-				</button>
+			{isCartPage ? (
+				<Button type='button' asChild size={'xl'}>
+					<a href='/order'>Перейти к оформлению</a>
+				</Button>
 			) : (
-				<button className='button-main-filled' onClick={makeOrder}>
+				<Button type='submit' size={'xl'}>
 					Оформить заказ
-				</button>
-			)} */}
+				</Button>
+			)}
 		</div>
 	)
 }
