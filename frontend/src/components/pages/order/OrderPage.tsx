@@ -1,20 +1,16 @@
 'use client'
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 import useCartPosters from '@/hooks/useCartPosters'
+import useCartStore from '@/stores/cart.store'
 import useOrderStore from '@/stores/order.store'
+import cartUtils from '@/utils/cart.utils'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import CartEmpty from '../cart/CartEmpty'
 import CartSummary from '../cart/CartSummary'
 import ContactInfo from './ContactInfo'
 import DeliveryCourier from './DeliveryCourier'
 import DeliverySelf from './DeliverySelf'
 import DeliveryTypePicker from './DeliveryTypePicker'
+import OrderHeader from './OrderHeader'
 
 export type formType = {
 	name: string
@@ -24,12 +20,13 @@ export type formType = {
 	deliveryDate: Date
 	deliveryTime?: string
 	deliveryAddress?: string
-	// deliveryCommentary?: string
 }
 
 export default function OrderPage() {
 	const { deliveryType } = useOrderStore()
 	const { cartRecords } = useCartPosters()
+	const { cartList } = useCartStore()
+	const totalQuantity = cartUtils.getTotalQuantity(cartList)
 	const {
 		register,
 		handleSubmit,
@@ -48,47 +45,34 @@ export default function OrderPage() {
 		})
 	}
 
+	if (totalQuantity == 0)
+		return (
+			<main>
+				<OrderHeader />
+				<CartEmpty />
+			</main>
+		)
+
 	return (
 		<main>
-			<section>
-				<div className='container'>
-					<Breadcrumb className=' py-10'>
-						<BreadcrumbList>
-							<BreadcrumbItem>
-								<BreadcrumbLink className='link' href='/'>
-									Главная
-								</BreadcrumbLink>
-							</BreadcrumbItem>
-							<BreadcrumbSeparator />
-							<BreadcrumbItem>
-								<BreadcrumbPage>Оформление заказа</BreadcrumbPage>
-							</BreadcrumbItem>
-						</BreadcrumbList>
-					</Breadcrumb>
-				</div>
-			</section>
+			<OrderHeader />
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<section className=''>
-					<div className='container pb-20'>
-						<h1 className='heading-2 border-b-2 border-solid'>
-							Оформление заказа
-						</h1>
-						<div className='grid lg:grid-cols-12 gap-10 mt-12'>
-							<div className='lg:col-span-7'>
-								<ContactInfo register={register} />
-								<DeliveryTypePicker className='mt-12' control={control} />
-								{deliveryType.name == 'Самовывоз' ? (
-									<DeliverySelf control={control} className='mt-12' />
-								) : (
-									<DeliveryCourier
-										control={control}
-										register={register}
-										className='mt-12'
-									/>
-								)}
-							</div>
-							<CartSummary isCartPage={false} className='lg:col-span-5' />
+				<section className='pb-10'>
+					<div className='container grid lg:grid-cols-12 gap-10 mt-12'>
+						<div className='lg:col-span-7'>
+							<ContactInfo register={register} />
+							<DeliveryTypePicker className='mt-12' control={control} />
+							{deliveryType.name == 'Самовывоз' ? (
+								<DeliverySelf control={control} className='mt-12' />
+							) : (
+								<DeliveryCourier
+									control={control}
+									register={register}
+									className='mt-12'
+								/>
+							)}
 						</div>
+						<CartSummary isCartPage={false} className='lg:col-span-5' />
 					</div>
 				</section>
 			</form>
