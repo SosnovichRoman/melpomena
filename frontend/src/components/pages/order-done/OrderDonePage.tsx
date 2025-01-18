@@ -1,33 +1,10 @@
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbLink,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
+import OrderHeader from '../order/OrderHeader'
 
 export default function OrderDonePage() {
 	return (
 		<main>
-			<section>
-				<div className='container'>
-					<Breadcrumb className=' py-10'>
-						<BreadcrumbList>
-							<BreadcrumbItem>
-								<BreadcrumbLink className='link' href='/'>
-									Главная
-								</BreadcrumbLink>
-							</BreadcrumbItem>
-							<BreadcrumbSeparator />
-							<BreadcrumbItem>
-								<BreadcrumbPage>Оформление заказа</BreadcrumbPage>
-							</BreadcrumbItem>
-						</BreadcrumbList>
-					</Breadcrumb>
-				</div>
-			</section>
+			<OrderHeader />
 			<section className='py-[250px]'>
 				<div className='conteiner flex items-center justify-center flex-col'>
 					<p className='heading-3'>Ваш заказ успешно оформлен!</p>
