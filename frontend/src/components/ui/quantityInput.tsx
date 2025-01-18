@@ -4,13 +4,17 @@ export default function QuantityInput({
 	quantity,
 	onIncrement,
 	onDecrement,
+	className,
 }: {
 	quantity: number
 	onIncrement: Function
 	onDecrement: Function
+	className?: string
 }) {
 	return (
-		<div className='py-2 px-2  text-body leading-none inline-flex gap-12 items-center relative border-[1px] border-solid rounded-sm'>
+		<div
+			className={`py-2 px-2 text-body leading-none inline-flex gap-12 items-center relative border-[1px] border-solid rounded-sm w-fit ${className}`}
+		>
 			<button
 				disabled={quantity <= 1}
 				onClick={() => onDecrement()}

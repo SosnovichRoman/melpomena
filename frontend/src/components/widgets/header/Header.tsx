@@ -11,13 +11,6 @@ import { Menu } from 'lucide-react'
 import CartIcon from './CartIcon'
 
 const Header = () => {
-	// const [toggle, setToggle] = useState(false)
-	// useEffect(() => {
-	// 	toggle
-	// 		? document.documentElement.classList.add('lock')
-	// 		: document.documentElement.classList.remove('lock')
-	// })
-
 	return (
 		<header className='bg-light-bg'>
 			<div className='container h-20 flex justify-between'>
@@ -37,7 +30,6 @@ const Header = () => {
 				</nav>
 				<div className='flex items-center gap-6'>
 					<CartIcon />
-
 					<Sheet>
 						<SheetTrigger className='md:hidden'>
 							<Menu />
@@ -45,7 +37,6 @@ const Header = () => {
 						<SheetContent className=''>
 							<SheetHeader>
 								<SheetTitle className='hidden'>Categories</SheetTitle>
-								{/* <SheetDescription className=''> */}
 								<ul className='py-10 flex items-center flex-col gap-12 text-lg'>
 									{categoryLinks.map((category) => (
 										<li key={category.slug}>
@@ -55,7 +46,6 @@ const Header = () => {
 										</li>
 									))}
 								</ul>
-								{/* </SheetDescription> */}
 							</SheetHeader>
 						</SheetContent>
 					</Sheet>

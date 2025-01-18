@@ -1,7 +1,7 @@
 import { deliveryTypes } from '@/constants/delivery-types'
 import { create } from 'zustand'
 
-type deliveryType = { name: string; price: number }
+export type deliveryType = { name: string; price: number }
 
 type Store = {
 	deliveryType: deliveryType

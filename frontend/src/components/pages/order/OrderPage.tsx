@@ -7,6 +7,7 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import useCartPosters from '@/hooks/useCartPosters'
 import useOrderStore from '@/stores/order.store'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import CartSummary from '../cart/CartSummary'
@@ -23,11 +24,12 @@ export type formType = {
 	deliveryDate: Date
 	deliveryTime?: string
 	deliveryAddress?: string
-	deliveryCommentary?: string
+	// deliveryCommentary?: string
 }
 
 export default function OrderPage() {
 	const { deliveryType } = useOrderStore()
+	const { cartRecords } = useCartPosters()
 	const {
 		register,
 		handleSubmit,
@@ -35,7 +37,16 @@ export default function OrderPage() {
 		// formState: { isValid, isSubmitting },
 	} = useForm<formType>()
 
-	const onSubmit: SubmitHandler<formType> = (data) => console.log(data)
+	const onSubmit: SubmitHandler<formType> = (data) => {
+		fetch('/api/order', {
+			method: 'POST',
+			body: JSON.stringify({
+				orderInfo: data,
+				cartList: cartRecords,
+				deliveryType: deliveryType,
+			}),
+		})
+	}
 
 	return (
 		<main>

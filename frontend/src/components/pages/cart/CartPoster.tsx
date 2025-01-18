@@ -14,23 +14,32 @@ const CartPoster = ({ cartRecord }: { cartRecord: ICartRecord }) => {
 	}
 
 	return (
-		<div className='grid grid-cols-7 gap-[30px] pb-5 border-b-2 border-solid border-main-3'>
+		<div className='grid grid-cols-7 md:gap-[30px] gap-3 pb-5 border-b-2 border-solid border-main-3'>
 			<img
 				className='col-span-2 aspect-square object-cover'
 				src={cartPoster?.images?.[0]}
 				alt={cartPoster?.name}
 			/>
-			<div className='col-span-5 flex gap-[30px]'>
-				<div className='flex flex-col grow'>
-					<h4 className='heading-4 text-main'>Постер {cartPoster?.name}</h4>
+			<div className='col-span-5 flex gap-3'>
+				<div className='flex flex-col gap-3 grow'>
+					<h4 className='md:heading-4'>Постер {cartPoster?.name}</h4>
 
-					<p className='mt-3 space-x-3'>
+					<p className=' space-x-3'>
 						<span className='text-[14px] opacity-80'>Размер:</span>
 						<span>{cartPoster.dimension.name}</span>
 					</p>
-					<p className='mt-3 space-x-3'>
+					<p className=' space-x-3'>
 						<span className='text-[14px] opacity-80'>Рамка:</span>
 						<span>{cartPoster.frame.name}</span>
+					</p>
+					<QuantityInput
+						className='md:hidden'
+						quantity={quantity}
+						onIncrement={() => updateStore(cartPosterSave, quantity + 1)}
+						onDecrement={() => updateStore(cartPosterSave, quantity - 1)}
+					/>
+					<p className='md:heading-4 md:hidden'>
+						{posterUtils.calculateCartPosterPrice(cartPoster, quantity)} BYN
 					</p>
 				</div>
 				<div className='h-full flex flex-col justify-between items-end gap-5'>
@@ -38,11 +47,12 @@ const CartPoster = ({ cartRecord }: { cartRecord: ICartRecord }) => {
 						<X />
 					</button>
 					<QuantityInput
+						className='max-md:hidden'
 						quantity={quantity}
 						onIncrement={() => updateStore(cartPosterSave, quantity + 1)}
 						onDecrement={() => updateStore(cartPosterSave, quantity - 1)}
 					/>
-					<p className='heading-4 text-main'>
+					<p className='heading-4 text-main max-md:hidden'>
 						{posterUtils.calculateCartPosterPrice(cartPoster, quantity)} BYN
 					</p>
 				</div>
