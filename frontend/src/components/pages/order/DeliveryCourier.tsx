@@ -27,8 +27,8 @@ export default function DeliveryCourier({
 				перед доставкой. При необходимости, он может оставить заказ у двери,
 				либо передать вам лично в руки.
 			</p>
-			<div className='grid grid-cols-2 gap-x-10 gap-y-5 mt-6'>
-				<label className='col-span-2'>
+			<div className='grid md:grid-cols-2 gap-x-10 gap-y-5 mt-6'>
+				<label className='md:col-span-2'>
 					<span className='text-body'>Адрес доставки</span>
 					<Input
 						className='mt-2'

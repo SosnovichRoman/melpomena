@@ -15,7 +15,7 @@ export default function DeliverySelf({
 			<div className='mt-6'>
 				<label>
 					<span className='text-body-sm'>Дата доставки</span>
-					<div className='grid grid-cols-2 gap-x-10 mt-2'>
+					<div className='grid md:grid-cols-2 gap-x-10 mt-2'>
 						<DeliveryDatePicker control={control} />
 					</div>
 				</label>

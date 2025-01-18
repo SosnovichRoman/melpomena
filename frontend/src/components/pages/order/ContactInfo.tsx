@@ -12,7 +12,7 @@ export default function ContactInfo({
 	return (
 		<div className={className}>
 			<h3 className='heading-3 text-main'>Контактная информация</h3>
-			<div className={`mt-6 grid grid-cols-2 gap-x-10 gap-y-5 text-body`}>
+			<div className={`mt-6 grid md:grid-cols-2 gap-x-10 gap-y-5 text-body`}>
 				<label>
 					<span>Имя</span>
 					<Input

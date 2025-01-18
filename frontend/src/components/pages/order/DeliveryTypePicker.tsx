@@ -20,7 +20,7 @@ export default function DeliveryTypePicker({
 				name='deliveryType'
 				defaultValue={deliveryType.name}
 				render={({ field: { onChange, value } }) => (
-					<div className={`mt-6 grid grid-cols-2 gap-x-10 gap-y-5`}>
+					<div className={`mt-6 grid md:grid-cols-2 gap-x-10 gap-y-5`}>
 						{deliveryTypes.map((type) => (
 							<Button
 								type='button'

@@ -44,9 +44,7 @@ export default function CategoryPage({
 							)}
 						</BreadcrumbList>
 					</Breadcrumb>
-					<h2 className='heading-2 border-b-2 border-solid'>
-						Популярные постеры
-					</h2>
+					<h2 className='heading-2 border-b-2 border-solid'>{category.name}</h2>
 				</div>
 			</section>
 			<CategoryGrid category={category.slug} />

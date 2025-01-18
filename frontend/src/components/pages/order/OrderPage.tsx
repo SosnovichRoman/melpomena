@@ -62,8 +62,8 @@ export default function OrderPage() {
 						<h1 className='heading-2 border-b-2 border-solid'>
 							Оформление заказа
 						</h1>
-						<div className='grid grid-cols-12 gap-10 mt-16'>
-							<div className='col-span-7'>
+						<div className='grid lg:grid-cols-12 gap-10 mt-12'>
+							<div className='lg:col-span-7'>
 								<ContactInfo register={register} />
 								<DeliveryTypePicker className='mt-12' control={control} />
 								{deliveryType.name == 'Самовывоз' ? (
@@ -76,7 +76,7 @@ export default function OrderPage() {
 									/>
 								)}
 							</div>
-							<CartSummary isCartPage={false} className='col-span-5' />
+							<CartSummary isCartPage={false} className='lg:col-span-5' />
 						</div>
 					</div>
 				</section>
