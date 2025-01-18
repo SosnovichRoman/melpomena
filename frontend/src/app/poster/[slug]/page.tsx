@@ -17,7 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	} satisfies Metadata
 }
 
-export default async function page({ params }: { params: { slug: string } }) {
+export default async function page({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}) {
 	const slug = (await params).slug
 	const poster = await posterService.getBySlug(slug)
 	if (!poster) return <NotFound />

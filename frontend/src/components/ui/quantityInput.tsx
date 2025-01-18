@@ -7,8 +7,8 @@ export default function QuantityInput({
 	className,
 }: {
 	quantity: number
-	onIncrement: Function
-	onDecrement: Function
+	onIncrement: () => void
+	onDecrement: () => void
 	className?: string
 }) {
 	return (

@@ -16,7 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	} satisfies Metadata
 }
 
-export default async function page({ params }: { params: { slug: string } }) {
+export default async function page({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}) {
 	const slug = (await params).slug
 	const category = await categoryService.getBySlug(slug)
 	return <CategoryPage category={category} />

@@ -1,4 +1,4 @@
-import { ICartPoster } from '@/types/cart.types'
+import { ICartPosterSave } from '@/types/cart.types'
 
 export const PostersByCategoryQuery = (category: string) => {
 	if (category == '')
@@ -10,7 +10,7 @@ export const PostersByCategoryQuery = (category: string) => {
 }`
 }
 
-export const PosterByCartQuery = (cartPoster: ICartPoster) => {
+export const PosterByCartQuery = (cartPoster: ICartPosterSave) => {
 	return `*[_type == 'poster' && _id == '${cartPoster._id}'
    && count(dimensions[_ref == '${cartPoster.dimensionId}']) > 0
    && count(frames[_ref == '${cartPoster.frameId}']) > 0][0]{
