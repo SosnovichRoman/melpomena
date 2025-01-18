@@ -1,5 +1,6 @@
 'use client'
 import useCartPosters from '@/hooks/useCartPosters'
+import useMakeOrder from '@/hooks/useMakeOrder'
 import useCartStore from '@/stores/cart.store'
 import useOrderStore from '@/stores/order.store'
 import cartUtils from '@/utils/cart.utils'
@@ -27,21 +28,14 @@ export default function OrderPage() {
 	const { cartRecords } = useCartPosters()
 	const { cartList } = useCartStore()
 	const totalQuantity = cartUtils.getTotalQuantity(cartList)
-	const {
-		register,
-		handleSubmit,
-		control,
-		// formState: { isValid, isSubmitting },
-	} = useForm<formType>()
+	const { register, handleSubmit, control } = useForm<formType>()
+	const { mutate } = useMakeOrder()
 
 	const onSubmit: SubmitHandler<formType> = (data) => {
-		fetch('/api/order', {
-			method: 'POST',
-			body: JSON.stringify({
-				orderInfo: data,
-				cartList: cartRecords,
-				deliveryType: deliveryType,
-			}),
+		mutate({
+			orderInfo: data,
+			cartList: cartRecords!,
+			deliveryType: deliveryType,
 		})
 	}
 

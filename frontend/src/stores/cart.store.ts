@@ -7,6 +7,7 @@ type Store = {
 	add: (cartPoster: ICartPosterSave) => void
 	delete: (cartPoster: ICartPosterSave) => void
 	update: (cartPoster: ICartPosterSave, quantity: number) => void
+	reset: () => void
 }
 
 const useCartStore = create<Store>()(
@@ -51,6 +52,8 @@ const useCartStore = create<Store>()(
 					}
 					return newState
 				}),
+
+			reset: () => set(() => ({ cartList: [] })),
 		}),
 		{
 			name: 'cart-storage',
