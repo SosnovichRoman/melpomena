@@ -48,7 +48,7 @@ ${data.cartList
 Итоговая цена: ${
 			data.deliveryType.price + cartUtils.getTotalPrice(data.cartList)
 		}руб.`
-		fetch(
+		await fetch(
 			`https://api.telegram.org/bot${process.env.BOT_API_TOKEN}/sendMessage?chat_id=-4673291479&text=${message}`
 		)
 	} catch (error) {
