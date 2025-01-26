@@ -12,11 +12,6 @@ const Footer = () => {
 						<a href='/' className='max-md:flex max-md:justify-center'>
 							<img className='h-12' src='/img/logo.svg' alt='logo' />
 						</a>
-						{/* <p className='text-body mt-6'>
-							Melpomena - магазин постеров. <br />
-							Мы создаем стильные постеры, которые наполняют интерьер новыми
-							красками.
-						</p> */}
 						<h4 className='heading-4 mt-6'>Подпишитесь на наш инстаграм</h4>
 						<a
 							href='https://www.instagram.com/melpomena.by/'
@@ -45,12 +40,12 @@ const Footer = () => {
 						<nav>
 							<ul className='mt-6 space-y-4 text-body'>
 								<li>
-									<a href='' className='link'>
+									<a href='/contacts' className='link'>
 										Контакты
 									</a>
 								</li>
 								<li>
-									<a href='' className='link'>
+									<a href='/about' className='link'>
 										О нас
 									</a>
 								</li>
@@ -62,29 +57,29 @@ const Footer = () => {
 						<ul className='mt-6 space-y-4 text-body'>
 							<li className='flex gap-4 items-center max-md:justify-center'>
 								<MapPin />
-								<span>г. Минск, ул. П. Бровки, дом 52а, офис 36</span>
+								<span>Минский район, Боровлянский сельсовет, 74к2</span>
 							</li>
 							<li>
 								<a
-									href='tel:+375 (44) 573-89-29'
+									href='tel:+375 (25) 521-62-68'
 									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
 									<Phone />
-									<span>+375 (44) 573-89-29</span>
+									<span>+375 (25) 521-62-68</span>
 								</a>
 							</li>
 							<li>
 								<a
-									href='mailto:sosnovichroman@gmail.com'
+									href='mailto:melpomena.by@gmail.com'
 									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
 									<Mail />
-									<span>sosnovichroman@gmail.com</span>
+									<span>melpomena.by@gmail.com</span>
 								</a>
 							</li>
 							<li className='flex gap-4 items-center max-md:justify-center'>
 								<Clock />
-								<span>Пн-пт 10:00 - 18:00</span>
+								<span>Пн-пт 08:00 - 16:00</span>
 							</li>
 						</ul>
 					</div>
