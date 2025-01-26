@@ -11,10 +11,6 @@ const categoryLinks = [
 		name: 'Фильмы',
 		slug: 'movies',
 	},
-	{
-		name: 'Спорт',
-		slug: 'sport',
-	},
 ]
 
 export default categoryLinks

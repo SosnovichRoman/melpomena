@@ -26,6 +26,16 @@ const Header = () => {
 								</a>
 							</li>
 						))}
+						<li key='about'>
+							<a className='link' href='/about'>
+								О нас
+							</a>
+						</li>
+						<li key='contacts'>
+							<a className='link' href='/contacts'>
+								Контакты
+							</a>
+						</li>
 					</ul>
 				</nav>
 				<div className='flex items-center gap-6'>
@@ -45,6 +55,16 @@ const Header = () => {
 											</a>
 										</li>
 									))}
+									<li key='about'>
+										<a className='link' href='/about'>
+											О нас
+										</a>
+									</li>
+									<li key='contacts'>
+										<a className='link' href='/contacts'>
+											Контакты
+										</a>
+									</li>
 								</ul>
 							</SheetHeader>
 						</SheetContent>

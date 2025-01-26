@@ -21,18 +21,17 @@ export default function DeliverySelf({
 				</label>
 			</div>
 			<p className='text-body mt-6'>
-				Самовывоз осуществляется по адресу: ул. Петруся Бровки, дом 52а.
+				Самовывоз осуществляется по адресу: Минский район, Боровлянский
+				сельсовет, 74к2.
 				<br />
-				Время работы: 10:00-18:00, пн-пт.
+				Время работы: 08:00-16:00, пн-пт.
 			</p>
-			<iframe
-				className='mt-5'
-				src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2349.9491356013955!2d27.56849706524735!3d53.9148797594938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbcfb41942d09b%3A0x42ca0d01c03ecd66!2z0KHQsNC70L7QvSDRhtCy0LXRgtC-0LIgRXZhIEZsb3I!5e0!3m2!1sru!2sby!4v1694965210634!5m2!1sru!2sby'
-				width='100%'
-				height='500'
-				loading='lazy'
-				referrerPolicy='no-referrer-when-downgrade'
-			></iframe>
+			<div className='overflow-hidden mt-5'>
+				<iframe
+					src='https://yandex.by/map-widget/v1/?indoorLevel=1&ll=27.628917%2C53.963334&mode=whatshere&tab=inside&whatshere%5Bpoint%5D=27.629187%2C53.963516&whatshere%5Bzoom%5D=17&z=16.8'
+					className='relative w-full md:h-[600px] h-[500px] border-2'
+				></iframe>
+			</div>
 		</div>
 	)
 }
