@@ -47,7 +47,7 @@ const Header = () => {
 						<SheetContent className=''>
 							<SheetHeader>
 								<SheetTitle className='hidden'>Categories</SheetTitle>
-								<ul className='py-10 flex items-center flex-col gap-12 text-lg'>
+								<ul className='py-10 flex items-center flex-col gap-8 text-xl'>
 									{categoryLinks.map((category) => (
 										<li key={category.slug}>
 											<a className='link' href={`/category/${category.slug}`}>
