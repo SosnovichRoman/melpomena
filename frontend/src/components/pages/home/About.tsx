@@ -25,7 +25,7 @@ export default function About() {
 				</div>
 				<div className='relative max-md:h-[300px]'>
 					<img
-						src='/img/home/about.png'
+						src='/img/home/about.webp'
 						alt='Постер'
 						className='absolute inset-0 w-full h-full object-cover'
 					/>

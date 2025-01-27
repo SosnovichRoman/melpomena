@@ -55,7 +55,7 @@ export default function AboutPage() {
 						</div>
 						<div className='relative max-md:h-[300px]'>
 							<img
-								src='/img/home/about.png'
+								src='/img/about/monica.webp'
 								alt='Постер'
 								className='absolute inset-0 w-full h-full object-cover'
 							/>
