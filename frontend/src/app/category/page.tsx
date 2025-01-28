@@ -4,7 +4,6 @@ import type { Metadata } from 'next'
 export async function generateMetadata() {
 	return {
 		title: 'Все постеры',
-		description: 'Постеры Melpomena',
 	} satisfies Metadata
 }
 

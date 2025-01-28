@@ -12,8 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	const poster = await posterService.getBySlug(slug)
 
 	return {
-		title: `Постер ${poster?.name}` || '',
-		description: 'Постеры Melpomena',
+		title: `Постер ${poster?.name} - Melpomena` || '',
 	} satisfies Metadata
 }
 
