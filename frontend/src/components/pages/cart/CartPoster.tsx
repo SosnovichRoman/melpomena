@@ -15,14 +15,20 @@ const CartPoster = ({ cartRecord }: { cartRecord: ICartRecord }) => {
 
 	return (
 		<div className='grid grid-cols-7 md:gap-[30px] gap-3 pb-5 border-b-2 border-solid border-main-3'>
-			<img
-				className='col-span-2 aspect-square object-cover'
-				src={cartPoster?.images?.[0]}
-				alt={cartPoster?.name}
-			/>
+			<a className='col-span-2' href={`/poster/${cartPoster.slug}`}>
+				<img
+					className='aspect-square object-cover hover:opacity-80 active:opacity-60'
+					src={cartPoster?.images?.[0]}
+					alt={cartPoster?.name}
+				/>
+			</a>
 			<div className='col-span-5 flex gap-3'>
 				<div className='flex flex-col gap-3 grow'>
-					<h4 className='md:heading-4'>Постер {cartPoster?.name}</h4>
+					<h4 className='md:heading-4'>
+						<a className='link' href={`/poster/${cartPoster.slug}`}>
+							Постер {cartPoster?.name}
+						</a>
+					</h4>
 
 					<p className=' space-x-3'>
 						<span className='text-[14px] opacity-80'>Размер:</span>

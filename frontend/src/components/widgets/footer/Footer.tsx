@@ -56,15 +56,17 @@ const Footer = () => {
 						<h3 className='heading-3'>Контакты</h3>
 						<ul className='mt-6 space-y-4 text-body'>
 							<li className='flex gap-4 items-center max-md:justify-center'>
-								<MapPin />
-								<span>Минский район, Боровлянский сельсовет, 74к2</span>
+								<MapPin className='shrink-0' />
+								<span>
+									Минский район, Боровлянский сельсовет, 74к2, павильон 146
+								</span>
 							</li>
 							<li>
 								<a
 									href='tel:+375 (25) 521-62-68'
 									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
-									<Phone />
+									<Phone className='shrink-0' />
 									<span>+375 (25) 521-62-68</span>
 								</a>
 							</li>
@@ -73,12 +75,12 @@ const Footer = () => {
 									href='mailto:melpomena.by@gmail.com'
 									className='hover:underline flex gap-4 items-center max-md:justify-center'
 								>
-									<Mail />
+									<Mail className='shrink-0' />
 									<span>melpomena.by@gmail.com</span>
 								</a>
 							</li>
 							<li className='flex gap-4 items-center max-md:justify-center'>
-								<Clock />
+								<Clock className='shrink-0' />
 								<span>Пн-пт 08:00 - 16:00</span>
 							</li>
 						</ul>

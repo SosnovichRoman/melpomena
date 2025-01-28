@@ -36,14 +36,16 @@ export default function ContactsPage() {
 							<li>
 								<h3 className='heading-3 mb-3'>Адрес самовывоза</h3>
 								<div className='flex items-center gap-4'>
-									<MapPin />
-									<span>Минский район, Боровлянский сельсовет, 74к2</span>
+									<MapPin className='shrink-0' />
+									<span>
+										Минский район, Боровлянский сельсовет, 74к2, павильон 146
+									</span>
 								</div>
 							</li>
 							<li>
 								<h3 className='heading-3 mb-3'>Время работы</h3>
 								<div className='flex items-center gap-4'>
-									<Clock />
+									<Clock className='shrink-0' />
 									<span>Пн-пт 08:00 - 16:00</span>
 								</div>
 							</li>
@@ -54,7 +56,7 @@ export default function ContactsPage() {
 									className='flex items-center gap-4 link'
 									href='tel:+375 (25) 521-62-68'
 								>
-									<Phone />
+									<Phone className='shrink-0' />
 									<span>+375 (25) 521-62-68</span>
 								</a>
 							</li>
@@ -64,7 +66,7 @@ export default function ContactsPage() {
 									href='https://www.instagram.com/melpomena.by/'
 									className='flex items-center gap-4 link'
 								>
-									<Instagram />
+									<Instagram className='shrink-0' />
 									<span>@melpomena.by</span>
 								</a>
 							</li>

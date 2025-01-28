@@ -11,9 +11,11 @@ const PosterImages = ({ poster }: { poster: IPosterFull | undefined }) => {
 		<>
 			<div className='md:hidden min-w-0'>
 				<Swiper
-					scrollbar={{
-						hide: true,
-					}}
+					scrollbar={
+						{
+							// hide: true,
+						}
+					}
 					slidesPerView={1}
 					spaceBetween={10}
 					modules={[Scrollbar]}
