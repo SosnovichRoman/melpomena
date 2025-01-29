@@ -1,0 +1,19 @@
+{
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/apple-icon.png/route": "app/apple-icon.png/route.js",
+  "/icon.svg/route": "app/icon.svg/route.js",
+  "/manifest.json/route": "app/manifest.json/route.js",
+  "/icon.png/route": "app/icon.png/route.js",
+  "/api/order/route": "app/api/order/route.js",
+  "/category/[slug]/page": "app/category/[slug]/page.js",
+  "/category/page": "app/category/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/poster/[slug]/page": "app/poster/[slug]/page.js",
+  "/poster/page": "app/poster/page.js",
+  "/order/page": "app/order/page.js",
+  "/cart/page": "app/cart/page.js",
+  "/contacts/page": "app/contacts/page.js",
+  "/about/page": "app/about/page.js",
+  "/order-done/page": "app/order-done/page.js",
+  "/page": "app/page.js"
+}
