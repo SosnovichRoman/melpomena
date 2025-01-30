@@ -8,7 +8,7 @@ import './globals.css'
 export const metadata: Metadata = {
 	title: 'Melpomena',
 	description:
-		'Интернет-магазин постеров melpomena.by. Приятно выбрать и купить постер, букет с доставкой по Минску и Беларуси +375 (25) 521-62-68',
+		'Интернет-магазин постеров melpomena.by. Приятно выбрать и купить постер с доставкой по Минску и Беларуси +375 (25) 521-62-68',
 }
 
 const libre = Libre_Franklin({ subsets: ['cyrillic', 'latin'] })

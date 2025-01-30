@@ -5,6 +5,6 @@ export const deliveryTypes = [
 	},
 	{
 		name: 'Доставка курьером',
-		price: 8,
+		price: 15,
 	},
 ]
