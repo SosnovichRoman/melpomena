@@ -54,7 +54,7 @@ export default function ContactsPage() {
 								<h3 className='heading-3 mb-3'>Телефон</h3>
 								<a
 									className='flex items-center gap-4 link'
-									href='tel:+375 (25) 521-62-68'
+									href='tel:+375(25)521-62-68'
 								>
 									<Phone className='shrink-0' />
 									<span>+375 (25) 521-62-68</span>
