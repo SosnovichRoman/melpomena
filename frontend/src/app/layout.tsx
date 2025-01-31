@@ -1,6 +1,7 @@
 import Footer from '@/components/widgets/footer/Footer'
 import Header from '@/components/widgets/header/Header'
 import Providers from '@/providers/Providers'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Libre_Franklin } from 'next/font/google'
 import './globals.css'
@@ -26,6 +27,7 @@ export default function RootLayout({
 					{children}
 					<Footer />
 				</Providers>
+				<GoogleAnalytics gaId='G-T11QXH0ZG6' />
 			</body>
 		</html>
 	)
