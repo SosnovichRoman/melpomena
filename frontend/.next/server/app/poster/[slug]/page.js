@@ -48,4 +48,4 @@
   "frames": frames[]->{_id, name, price}
 }`,o=e=>`*[_type == 'category' && slug == '${e}'][0]{
     name, slug,
-  }`},10136:()=>{},2822:()=>{}};var t=require("../../../webpack-runtime.js");t.C(e);var s=e=>t(t.s=e),i=t.X(0,[638,426,538,497,531,788,846],()=>s(8103));module.exports=i})();
+  }`},10136:()=>{},2822:()=>{}};var t=require("../../../webpack-runtime.js");t.C(e);var s=e=>t(t.s=e),i=t.X(0,[638,393,538,497,531,788,38],()=>s(8103));module.exports=i})();
