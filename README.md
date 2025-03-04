@@ -4,4 +4,4 @@
 
 Используемые технологии: React, Next JS, Tailwind CSS, ShadCN, Zustand, tanstack-query, react-hook-form, sanity. 
 
-Ссылка на сайт: https://melpomena.by/
+Ссылка на сайт: https://melpomena.vercel.app/
