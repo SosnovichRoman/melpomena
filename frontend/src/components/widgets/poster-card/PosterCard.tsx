@@ -10,6 +10,7 @@ const PosterCard = ({
 }) => {
 	return (
 		<Link
+			prefetch={false}
 			href={`/poster/${poster.slug}`}
 			className={`group/product flex flex-col h-fit hover:scale-105 active:opacity-60 transition-all duration-300 relative ${className} `}
 		>

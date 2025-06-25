@@ -1,6 +1,5 @@
 'use client'
 import { Button } from '@/components/ui/button'
-
 import useCartStore from '@/stores/cart.store'
 import { IPosterFull } from '@/types/poster.types'
 import cartUtils from '@/utils/cart.utils'
@@ -34,7 +33,7 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 				<div className='grid lg:grid-cols-2 lg:gap-20 gap-10'>
 					<PosterImages poster={poster} />
 					<div className=''>
-						<h1 className='heading-2 text-main'>Постер {poster?.name}</h1>
+						<h1 className='heading-2 text-main'>Постер {poster.name}</h1>
 						<div className='mt-5 heading-3 font-normal'>{price} руб.</div>
 						<div className='mt-5'>
 							<p className='heading-4'>Размеры:</p>
@@ -54,7 +53,7 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 						<div className='mt-5'>
 							<p className='heading-4'>Рамки:</p>
 							<div className='mt-2 flex gap-3 flex-wrap'>
-								{poster?.frames?.map((frame, index) => (
+								{poster.frames.map((frame, index) => (
 									<Button
 										className='text-base'
 										onClick={() => setSelectedFrame(index)}
@@ -80,7 +79,7 @@ export default function PosterView({ poster }: { poster: IPosterFull }) {
 								className='mt-5 w-full'
 								size={'xl'}
 								onClick={() => {
-									if (poster?._id)
+									if (poster._id)
 										addToStore({
 											_id: poster._id,
 											dimensionId: poster.dimensions[selectedDimention]._id,
